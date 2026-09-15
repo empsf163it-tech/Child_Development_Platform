@@ -4913,10 +4913,13 @@
         55px 0 20px;
 
       background:
-        var(--plum);
+        rgba(255, 250, 243, 0.94);
+
+      border-top:
+        1px solid rgba(107, 78, 113, .11);
 
       color:
-        #fff;
+        var(--ink);
     }
 
     .footer-grid {
@@ -4945,11 +4948,11 @@
       width: 44px;
       height: 44px;
       border-radius: 14px 18px 14px 18px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .22);
+      box-shadow: 0 8px 20px rgba(242, 123, 98, .18);
     }
 
     .footer-logo .logo-name {
-      color: #ffffff;
+      color: var(--plum);
       font-size: 26px;
       font-weight: 800;
       line-height: .9;
@@ -4957,11 +4960,11 @@
     }
 
     .footer-logo:hover .logo-name {
-      color: var(--yellow);
+      color: var(--coral);
     }
 
     .footer-logo .logo-tagline {
-      color: rgba(255, 255, 255, .70);
+      color: #8B7D88;
       font-size: 13px;
       margin-top: 4px;
     }
@@ -4975,7 +4978,7 @@
         10px;
 
       color:
-        rgba(255, 255, 255, .62);
+        var(--muted);
 
       font-size: 15px;
 
@@ -4989,13 +4992,15 @@
         11px;
 
       color:
-        var(--yellow);
+        var(--plum);
 
       font-family:
         "Baloo 2";
 
       font-size:
         17px;
+
+      font-weight: 700;
     }
 
     .footer-list {
@@ -5011,7 +5016,7 @@
     .footer-list li {
 
       color:
-        rgba(255, 255, 255, .66);
+        var(--ink);
 
       font-size: 15px;
 
@@ -5028,7 +5033,7 @@
         translateX(4px);
 
       color:
-        #fff;
+        var(--coral);
     }
 
     .footer-socials {
@@ -5055,16 +5060,16 @@
       place-items: center;
 
       border:
-        1px solid rgba(255, 255, 255, .13);
+        1px solid rgba(107, 78, 113, .15);
 
       border-radius:
         13px;
 
       background:
-        rgba(255, 255, 255, .06);
+        #ffffff;
 
       color:
-        #fff;
+        var(--plum);
 
       transition:
         transform .25s var(--ease),
@@ -5091,16 +5096,16 @@
         translateY(-5px) rotate(-2deg);
 
       background:
-        var(--yellow);
+        var(--coral);
 
       color:
-        var(--plum);
+        #ffffff;
 
       border-color:
-        var(--yellow);
+        var(--coral);
 
       box-shadow:
-        0 12px 24px rgba(244, 201, 93, .16);
+        0 12px 24px rgba(242, 123, 98, .24);
     }
 
     .footer-bottom {
@@ -5119,10 +5124,10 @@
         18px;
 
       border-top:
-        1px solid rgba(255, 255, 255, .12);
+        1px solid rgba(107, 78, 113, .11);
 
       color:
-        rgba(255, 255, 255, .45);
+        var(--muted);
 
       font-size: 14px;
     }
