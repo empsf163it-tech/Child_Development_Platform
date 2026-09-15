@@ -1110,6 +1110,52 @@
       font-size: 14px;
     }
 
+    /* =========================================================
+   TABLET 2x2 BENEFITS GRID (600px - 1000px)
+========================================================= */
+    @media (min-width: 600px) and (max-width: 1000px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+
+      .benefit {
+        min-height: 82px !important;
+        padding: 16px 20px !important;
+        border-radius: 20px !important;
+        gap: 14px !important;
+        background: #FFFDF9 !important;
+        border: 1px solid var(--line) !important;
+        box-shadow: 0 4px 14px rgba(107, 78, 113, .06) !important;
+      }
+
+      .benefit:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: var(--shadow-soft) !important;
+      }
+
+      .benefit-icon {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 19px !important;
+        border-radius: 14px !important;
+      }
+
+      .benefit strong {
+        font-size: 16px !important;
+        line-height: 1.25 !important;
+        display: block !important;
+        color: var(--plum) !important;
+      }
+
+      .benefit span {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        margin-top: 3px !important;
+        color: var(--muted) !important;
+      }
+    }
+
 
     /* =========================================================
    GENERAL SECTION
@@ -1271,53 +1317,104 @@
       bottom:
         22px;
 
+      display: flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        flex-end;
+
       color: #fff;
     }
 
     .image-card-icon {
 
       width:
-        36px;
+        38px;
 
       height:
-        36px;
+        38px;
 
       display: grid;
 
       place-items: center;
 
       margin-bottom:
-        10px;
+        12px;
 
       border-radius:
         12px;
 
       background:
-        rgba(255, 255, 255, .93);
+        rgba(255, 255, 255, .94);
 
       color:
         var(--plum);
+
+      font-size:
+        18px;
+
+      flex: 0 0 auto;
     }
 
     .image-card-content h3 {
-      font-size: 30px;
+      font-size: 28px;
+      line-height: 1.15;
+      min-height: 64px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 6px;
     }
 
     .image-card-content p {
 
       max-width:
-        320px;
+        340px;
 
       margin-top:
-        6px;
+        0;
 
       color:
-        rgba(255, 255, 255, .83);
+        rgba(255, 255, 255, .88);
 
-      font-size: 16px;
+      font-size: 15px;
 
       line-height:
-        1.55;
+        1.45;
+
+      min-height: 80px;
+    }
+
+    /* Tablet sizing override for image grid (600px - 1000px) */
+    @media (min-width: 600px) and (max-width: 1000px) {
+      .image-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 14px !important;
+      }
+
+      .image-card {
+        min-height: 400px !important;
+        border-radius: 24px !important;
+      }
+
+      .image-card-content {
+        left: 18px !important;
+        right: 18px !important;
+        bottom: 18px !important;
+      }
+
+      .image-card-content h3 {
+        font-size: 23px !important;
+        line-height: 1.15 !important;
+        min-height: 56px !important;
+      }
+
+      .image-card-content p {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        min-height: 74px !important;
+      }
     }
 
 
@@ -1335,6 +1432,11 @@
       align-items: center;
 
       gap: 55px;
+    }
+
+    .milestone-photo-wrap {
+      position: relative;
+      width: 100%;
     }
 
     .milestone-photo {
@@ -1358,6 +1460,8 @@
     .milestone-photo img {
 
       height: 100%;
+      width: 100%;
+      object-fit: cover;
 
       transition:
         transform .8s var(--ease);
@@ -1373,23 +1477,26 @@
       position: absolute;
 
       left:
-        18px;
+        -10px;
 
       top:
-        22px;
+        -10px;
+
+      z-index: 5;
 
       width:
-        104px;
+        138px;
 
       height:
-        104px;
+        138px;
 
-      display: grid;
+      display: flex;
 
-      place-items: center;
+      align-items: center;
+      justify-content: center;
 
       padding:
-        12px;
+        14px;
 
       border-radius:
         50%;
@@ -1401,18 +1508,30 @@
         var(--plum);
 
       font-family:
-        "Baloo 2";
+        "Baloo 2", sans-serif;
 
-      font-size: 15px;
+      font-size: 14px;
 
       font-weight:
         800;
 
       line-height:
-        1.12;
+        1.25;
 
       text-align:
         center;
+
+      box-shadow:
+        0 10px 24px rgba(244, 201, 93, .35),
+        var(--shadow-soft);
+
+      transform: rotate(-3deg);
+
+      transition: transform .3s var(--ease);
+    }
+
+    .milestone-photo-wrap:hover .milestone-sticker {
+      transform: rotate(3deg) scale(1.05);
     }
 
     .milestone-content h2 {
@@ -1804,16 +1923,18 @@
       display: flex;
 
       align-items: center;
+      justify-content: center;
+
+      text-align: center;
 
       position: relative;
 
       overflow: hidden;
 
       background:
-        linear-gradient(90deg,
-          rgba(107, 78, 113, .96),
-          rgba(107, 78, 113, .56),
-          rgba(107, 78, 113, .12)),
+        linear-gradient(180deg,
+          rgba(107, 78, 113, .88),
+          rgba(107, 78, 113, .88)),
         url("https://images.unsplash.com/photo-1484665754804-74b0917c7722?auto=format&fit=crop&w=2200&q=88"
         );
 
@@ -1826,16 +1947,28 @@
       color: #fff;
     }
 
+    .home-final .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
     .home-final h2 {
 
       max-width:
-        730px;
+        780px;
+
+      margin:
+        0 auto;
 
       font-size:
         60px;
 
       line-height:
         .96;
+
+      text-align: center;
     }
 
     .home-final h2 span {
@@ -1845,15 +1978,21 @@
     .home-final p {
 
       max-width:
-        520px;
+        580px;
 
       margin:
-        16px 0 23px;
+        18px auto 26px;
 
       color:
-        rgba(255, 255, 255, .83);
+        rgba(255, 255, 255, .89);
 
-      font-size: 16px;
+      font-size: 17px;
+
+      text-align: center;
+    }
+
+    .home-final .btn {
+      align-self: center;
     }
 
 
@@ -2049,29 +2188,21 @@
     }
 
     .activity-card h3 {
-
-      margin-top:
-        9px;
-
-      color:
-        var(--plum);
-
-      font-size:
-        27px;
+      margin-top: 9px;
+      color: var(--plum);
+      font-size: 27px;
+      line-height: 1.18;
+      min-height: 64px;
+      display: flex;
+      align-items: flex-end;
     }
 
     .activity-card p {
-
-      margin:
-        7px 0 15px;
-
-      color:
-        var(--muted);
-
+      margin: 7px 0 15px;
+      color: var(--muted);
       font-size: 15px;
-
-      line-height:
-        1.72;
+      line-height: 1.5;
+      min-height: 72px;
     }
 
     .activity-meta {
@@ -2352,6 +2483,14 @@
       bottom:
         23px;
 
+      display: flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        flex-end;
+
       color: #fff;
     }
 
@@ -2359,11 +2498,14 @@
 
       display: inline-block;
 
+      align-self:
+        flex-start;
+
       margin-bottom:
-        10px;
+        12px;
 
       padding:
-        6px 9px;
+        6px 11px;
 
       border-radius:
         999px;
@@ -2374,15 +2516,23 @@
       color:
         var(--plum);
 
-      font-size: 14px;
+      font-size: 13px;
 
       font-weight:
         800;
+
+      letter-spacing: .03em;
+
+      flex: 0 0 auto;
     }
 
     .activity-story-content h3 {
-      font-size:
-        31px;
+      font-size: 28px;
+      line-height: 1.16;
+      min-height: 94px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 8px;
     }
 
     .activity-story-content p {
@@ -2391,15 +2541,17 @@
         500px;
 
       margin-top:
-        7px;
+        0;
 
       color:
-        rgba(255, 255, 255, .82);
+        rgba(255, 255, 255, .86);
 
       font-size: 15px;
 
       line-height:
-        1.7;
+        1.45;
+
+      min-height: 72px;
     }
 
 
@@ -2695,15 +2847,70 @@
         29px;
     }
 
-    .milestone-image-content p {
+    .resource-story-caption p {
 
       margin-top:
-        5px;
+        6px;
 
       color:
         rgba(255, 255, 255, .82);
 
       font-size: 15px;
+    }
+
+    .resource-story-actions {
+      margin-top: auto;
+      padding-top: 22px;
+      border-top: 1px dashed rgba(107, 78, 113, .16);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .resource-story-socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .social-label-mini {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .02em;
+    }
+
+    .social-mini-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-mini-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1px solid #E2D9E2;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--plum);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.24s var(--ease);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .04);
+    }
+
+    .social-mini-btn:hover {
+      background: #FFF3E7;
+      border-color: var(--plum);
+      color: var(--plum);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(107, 78, 113, .14);
     }
 
 
@@ -2912,18 +3119,13 @@
     }
 
     .resource-card h3 {
-
-      color:
-        var(--plum);
-
-      font-size:
-        29px;
-
-      line-height:
-        1;
-
-      transition:
-        color .2s ease;
+      color: var(--plum);
+      font-size: 29px;
+      line-height: 1.12;
+      min-height: 66px;
+      display: flex;
+      align-items: flex-end;
+      transition: color .2s ease;
     }
 
     .resource-card:hover h3 {
@@ -2932,17 +3134,11 @@
     }
 
     .resource-card p {
-
-      margin:
-        9px 0 17px;
-
-      color:
-        var(--muted);
-
+      margin: 9px 0 17px;
+      color: var(--muted);
       font-size: 15px;
-
-      line-height:
-        1.75;
+      line-height: 1.5;
+      min-height: 72px;
     }
 
     .resource-link {
@@ -3130,10 +3326,14 @@
     .resource-story-copy {
 
       min-height:
-        420px;
+        480px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       padding:
-        30px;
+        32px;
 
       border:
         1px solid var(--line);
@@ -4226,7 +4426,7 @@
         hidden;
 
       background:
-        var(--plum);
+        #FFF1DC;
     }
 
     .auth-visual img {
@@ -4240,6 +4440,15 @@
 
       height:
         100%;
+
+      object-fit:
+        cover;
+
+      object-position:
+        center;
+
+      filter:
+        brightness(1.05) contrast(1.03);
     }
 
     .auth-visual::after {
@@ -4252,8 +4461,8 @@
 
       background:
         linear-gradient(180deg,
-          rgba(107, 78, 113, .05),
-          rgba(67, 45, 69, .79));
+          rgba(0, 0, 0, 0) 30%,
+          rgba(55, 35, 58, .62));
     }
 
     .auth-visual-content {
@@ -4325,7 +4534,7 @@
       display: flex;
 
       flex-direction:
-        column;
+        row;
 
       align-items:
         center;
@@ -4333,10 +4542,13 @@
       justify-content:
         center;
 
+      gap:
+        12px;
+
       cursor: pointer;
 
       margin:
-        0 auto 20px;
+        0 auto 16px;
 
       transition:
         transform .25s var(--ease);
@@ -4345,25 +4557,40 @@
     .auth-logo-center:hover {
 
       transform:
-        translateY(-3px);
+        translateY(-2px);
     }
 
     .auth-logo-center .logo-symbol {
 
       width:
-        54px;
+        44px;
 
       height:
-        54px;
+        44px;
+
+      border-radius:
+        14px 18px 14px 18px;
+
+      box-shadow:
+        0 6px 18px rgba(242, 123, 98, .22);
     }
 
     .auth-logo-center .logo-name {
 
       margin-top:
-        8px;
+        0;
+
+      font-family:
+        "Baloo 2", sans-serif;
 
       font-size:
         28px;
+
+      font-weight:
+        800;
+
+      color:
+        var(--plum);
     }
 
     .auth-form h2 {
@@ -4704,18 +4931,39 @@
     }
 
     .footer-brand {
+      margin-bottom: 6px;
+    }
 
-      font-family:
-        "Baloo 2";
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-      font-size:
-        30px;
+    .footer-logo .logo-symbol {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px 18px 14px 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .22);
+    }
 
-      font-weight:
-        800;
+    .footer-logo .logo-name {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: .9;
+      transition: color .2s ease;
+    }
 
-      line-height:
-        1;
+    .footer-logo:hover .logo-name {
+      color: var(--yellow);
+    }
+
+    .footer-logo .logo-tagline {
+      color: rgba(255, 255, 255, .70);
+      font-size: 13px;
+      margin-top: 4px;
     }
 
     .footer-description {
@@ -4906,6 +5154,58 @@
           1 / -1;
       }
 
+      @media(max-width:640px) {
+        .dashboard-grid {
+          grid-template-columns: 1fr !important;
+          gap: 14px !important;
+        }
+
+        .dash-card:first-child {
+          grid-column: auto !important;
+        }
+
+        .dash-card {
+          min-height: auto !important;
+          padding: 20px !important;
+        }
+      }
+
+      @media(max-width:680px) {
+        .activity-story-grid {
+          grid-template-columns: 1fr !important;
+          gap: 16px !important;
+        }
+
+        .activity-story-card {
+          min-height: 380px !important;
+          border-radius: 24px !important;
+        }
+
+        .activity-story-content {
+          left: 20px !important;
+          right: 20px !important;
+          bottom: 20px !important;
+        }
+
+        .activity-story-content h3 {
+          font-size: 24px !important;
+          line-height: 1.2 !important;
+          min-height: auto !important;
+        }
+
+        .activity-story-content p {
+          font-size: 14px !important;
+          line-height: 1.45 !important;
+          min-height: auto !important;
+        }
+
+        .story-pill {
+          font-size: 12px !important;
+          padding: 5px 10px !important;
+          margin-bottom: 8px !important;
+        }
+      }
+
       .footer-grid {
         grid-template-columns:
           1fr 1fr;
@@ -5060,12 +5360,9 @@
       }
 
       .auth-visual {
-
-        min-height:
-          330px;
-
-        max-height:
-          400px;
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: none !important;
       }
 
     }
@@ -6026,20 +6323,18 @@
 ========================================================= */
     .auth-page {
       min-height: 100dvh !important;
-      height: 100dvh !important;
       box-sizing: border-box;
-      padding: 16px 24px !important;
+      padding: 20px 24px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      overflow: hidden !important;
+      overflow-y: auto !important;
     }
 
     .auth-shell {
       width: min(1180px, 100%);
-      height: min(720px, calc(100dvh - 32px));
-      min-height: 0 !important;
-      max-height: none !important;
+      height: min(760px, calc(100dvh - 32px));
+      min-height: 520px !important;
       margin: 0 auto;
       overflow: hidden;
       grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr);
@@ -6060,25 +6355,30 @@
 
     .auth-form {
       min-height: 0 !important;
-      height: 100%;
+      height: 100% !important;
       box-sizing: border-box;
-      padding: 26px 42px !important;
-      overflow: hidden !important;
-      justify-content: center;
+      padding: 30px 42px 40px !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      justify-content: flex-start !important;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(107, 78, 113, .35) transparent;
     }
 
     .auth-logo-center {
       margin: 0 auto 8px !important;
+      flex-direction: row !important;
+      gap: 10px !important;
     }
 
     .auth-logo-center .logo-symbol {
-      width: 42px !important;
-      height: 42px !important;
+      width: 38px !important;
+      height: 38px !important;
     }
 
     .auth-logo-center .logo-name {
-      margin-top: 4px !important;
-      font-size: 22px !important;
+      margin-top: 0 !important;
+      font-size: 24px !important;
     }
 
     .auth-form h2 {
@@ -6163,9 +6463,15 @@
       }
 
       .auth-shell {
-        width: min(760px, 100%);
-        height: min(680px, calc(100dvh - 24px));
+        width: min(840px, 100%);
+        height: min(720px, calc(100dvh - 24px));
         grid-template-columns: 1fr 1fr;
+      }
+
+      .auth-visual {
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: none !important;
       }
 
       .auth-form {
@@ -6173,7 +6479,7 @@
       }
 
       .auth-visual-content h1 {
-        font-size: 38px !important;
+        font-size: 34px !important;
       }
 
       .auth-visual-content p {
@@ -6183,31 +6489,34 @@
 
     @media(max-width:760px) {
       .auth-page {
-        height: 100dvh !important;
+        height: auto !important;
         min-height: 100dvh !important;
-        padding: 8px !important;
+        padding: 12px !important;
+        overflow-y: auto !important;
       }
 
       .auth-shell {
-        width: min(620px, 100%);
-        height: min(650px, calc(100dvh - 16px));
+        width: 100%;
+        height: auto !important;
         grid-template-columns: 1fr;
         border-radius: 24px;
+        overflow: hidden;
       }
 
       .auth-visual {
-        height: 135px !important;
-        min-height: 135px !important;
+        height: 220px !important;
+        min-height: 220px !important;
+        max-height: none !important;
       }
 
       .auth-visual-content {
-        left: 18px !important;
-        right: 18px !important;
-        bottom: 14px !important;
+        left: 20px !important;
+        right: 20px !important;
+        bottom: 18px !important;
       }
 
       .auth-visual-content h1 {
-        font-size: 27px !important;
+        font-size: 28px !important;
       }
 
       .auth-visual-content p {
@@ -6309,80 +6618,84 @@
 
     @media(min-width:761px) {
       .auth-page {
-        height: 100dvh !important;
         min-height: 100dvh !important;
-        overflow: hidden !important;
-        padding: 12px 24px !important;
+        height: 100dvh !important;
+        padding: 16px 24px !important;
+        overflow-y: auto !important;
       }
 
       .auth-shell {
-        height: min(700px, calc(100dvh - 24px)) !important;
-        min-height: 0 !important;
+        height: min(740px, calc(100dvh - 32px)) !important;
+        min-height: 500px !important;
         max-height: none !important;
       }
 
       .auth-form {
         height: 100% !important;
-        min-height: 0 !important;
-        overflow: hidden !important;
-        padding: 22px 40px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 28px 38px 36px !important;
       }
 
       .auth-logo-center {
-        margin-bottom: 6px !important;
+        margin-bottom: 10px !important;
       }
 
       .auth-social-divider {
-        margin: 7px 0 5px !important;
+        margin: 10px 0 7px !important;
       }
 
       .auth-input {
-        margin-top: 5px !important;
+        margin-top: 8px !important;
       }
 
       .auth-input input,
       .auth-input select {
-        height: 40px !important;
-        min-height: 40px !important;
+        height: 42px !important;
+        min-height: 42px !important;
       }
 
       .social-btn {
-        height: 40px !important;
-        min-height: 40px !important;
+        height: 42px !important;
+        min-height: 42px !important;
       }
 
       .auth-extra {
-        margin: 5px 0 !important;
+        margin: 8px 0 !important;
       }
 
       .auth-submit {
-        height: 42px !important;
-        min-height: 42px !important;
-        margin-top: 6px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        margin-top: 10px !important;
       }
 
       .auth-switch {
-        margin-top: 6px !important;
+        margin-top: 12px !important;
+        padding-bottom: 8px !important;
       }
     }
 
     @media(max-width:760px) {
       .auth-page {
-        height: 100dvh !important;
+        height: auto !important;
         min-height: 100dvh !important;
-        overflow: hidden !important;
-        padding: 8px !important;
+        overflow-y: auto !important;
+        padding: 12px !important;
       }
 
       .auth-shell {
-        height: calc(100dvh - 16px) !important;
+        height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
-        overflow: hidden !important;
+        overflow: visible !important;
+        grid-template-columns: 1fr !important;
       }
 
       .auth-form {
-        overflow: hidden !important;
+        height: auto !important;
+        overflow-y: visible !important;
+        padding: 24px 20px 32px !important;
       }
     }
 
@@ -6403,83 +6716,6 @@
     .daily-card span {
       font-size: 13px !important;
       line-height: 1.45 !important;
-    }
-
-    /* Authentication is a compact viewport layout, not a scrollable card. */
-    @media(min-width:761px) {
-      .auth-page {
-        height: 100dvh !important;
-        min-height: 100dvh !important;
-        overflow: hidden !important;
-        padding: 12px 24px !important;
-      }
-
-      .auth-shell {
-        height: min(700px, calc(100dvh - 24px)) !important;
-        min-height: 0 !important;
-        max-height: none !important;
-      }
-
-      .auth-form {
-        height: 100% !important;
-        min-height: 0 !important;
-        overflow: hidden !important;
-        padding: 22px 40px !important;
-      }
-
-      .auth-logo-center {
-        margin-bottom: 6px !important;
-      }
-
-      .auth-social-divider {
-        margin: 7px 0 5px !important;
-      }
-
-      .auth-input {
-        margin-top: 5px !important;
-      }
-
-      .auth-input input,
-      .auth-input select {
-        height: 40px !important;
-        min-height: 40px !important;
-      }
-
-      .social-btn {
-        height: 40px !important;
-        min-height: 40px !important;
-      }
-
-      .auth-extra {
-        margin: 5px 0 !important;
-      }
-
-      .auth-submit {
-        height: 42px !important;
-        min-height: 42px !important;
-        margin-top: 6px !important;
-      }
-
-      .auth-switch {
-        margin-top: 6px !important;
-      }
-    }
-
-    @media(max-width:760px) {
-      .auth-page {
-        height: 100dvh !important;
-        min-height: 100dvh !important;
-        overflow: hidden !important;
-        padding: 8px !important;
-      }
-
-      .auth-shell {
-        height: calc(100dvh - 16px) !important;
-        min-height: 0 !important;
-        max-height: none !important;
-        overflow: hidden !important;
-      }
-
     }
 
     /* =========================================================
@@ -7159,11 +7395,15 @@
         <div class="milestone-layout">
 
 
-          <div class="milestone-photo">
+          <div class="milestone-photo-wrap">
 
-            <img src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=2000&q=88"
-              alt="Parent gently supporting a child" loading="lazy"
-              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1602030028438-4cf153cbae9e?auto=format&fit=crop&w=2200&q=88';">
+            <div class="milestone-photo">
+
+              <img src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=2000&q=88"
+                alt="Parent gently supporting a child" loading="lazy"
+                onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1602030028438-4cf153cbae9e?auto=format&fit=crop&w=2200&q=88';">
+
+            </div>
 
             <div class="milestone-sticker">
               Every stage has something wonderful
@@ -8560,7 +8800,29 @@ color:var(--muted);
             </div>
 
 
-            <div style="margin-top:20px;">
+            <div class="resource-story-actions">
+
+              <div class="resource-story-socials">
+                <span class="social-label-mini">Or connect with:</span>
+                <div class="social-mini-group">
+                  <button class="social-mini-btn" type="button" onclick="socialLogin('google')" title="Continue with Google" aria-label="Continue with Google">
+                    <svg width="16" height="16" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M21.35 12.27c0-.72-.06-1.42-.18-2.09H12v3.96h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.69 2.91-4.19 2.91-7.26Z" />
+                      <path fill="#34A853" d="M12 21.5c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.92-3.31.92-2.55 0-4.71-1.72-5.49-4.04H3.27v2.53A9.75 9.75 0 0 0 12 21.5Z" />
+                      <path fill="#FBBC04" d="M6.51 13.57A5.86 5.86 0 0 1 6.2 12c0-.54.11-1.07.31-1.57V7.9H3.27A9.75 9.75 0 0 0 2.25 12c0 1.57.38 3.04 1.02 4.1l3.24-2.53Z" />
+                      <path fill="#EA4335" d="M12 6.39c1.43 0 2.71.49 3.72 1.45l2.79-2.79C16.83 3.46 14.63 2.5 12 2.5a9.75 9.75 0 0 0-8.73 5.4l3.24 2.53C7.29 8.11 9.45 6.39 12 6.39Z" />
+                    </svg>
+                    <span>Google</span>
+                  </button>
+
+                  <button class="social-mini-btn" type="button" onclick="socialLogin('apple')" title="Continue with Apple" aria-label="Continue with Apple">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.13-1.97.99-3.12-1 .04-2.2.67-2.9 1.49-.62.72-1.16 1.89-1.01 3.01 1.12.09 2.25-.56 2.92-1.38z"/>
+                    </svg>
+                    <span>Apple</span>
+                  </button>
+                </div>
+              </div>
 
               <button class="btn btn-plum" onclick="navigateTo('dashboard')">
                 Open Family Dashboard →
@@ -9082,12 +9344,6 @@ color:var(--muted);
 
     <main class="auth-page">
 
-
-      <button class="auth-back" type="button" onclick="navigateTo('home')">
-        ← Back to Growly
-      </button>
-
-
       <div class="auth-shell">
 
 
@@ -9259,20 +9515,14 @@ color:var(--muted);
 
     <main class="auth-page">
 
-
-      <button class="auth-back" type="button" onclick="navigateTo('home')">
-        ← Back to Growly
-      </button>
-
-
       <div class="auth-shell">
 
 
         <div class="auth-visual">
 
-          <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?auto=format&fit=crop&w=2200&q=88"
-            alt="Parent and child enjoying a playful family moment" loading="eager"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1602030028438-4cf153cbae9e?auto=format&fit=crop&w=2200&q=88';">
+          <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=2200&q=88"
+            alt="Child taking happy little steps outdoors" loading="eager"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=2200&q=88';">
 
           <div class="auth-visual-content">
 
@@ -9486,7 +9736,19 @@ color:var(--muted);
         <div>
 
           <div class="footer-brand">
-            Growly
+            <a href="#home" class="logo footer-logo" onclick="navigateTo('home');return false;" aria-label="Growly Home">
+              <span class="logo-symbol">
+                <img src="favicon.png" alt="Growly">
+              </span>
+              <span>
+                <span class="logo-name">
+                  Growly
+                </span>
+                <span class="logo-tagline">
+                  LITTLE STEPS • BIG GROWTH
+                </span>
+              </span>
+            </a>
           </div>
 
           <div class="footer-description">
